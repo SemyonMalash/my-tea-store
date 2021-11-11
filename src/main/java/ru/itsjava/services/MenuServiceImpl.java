@@ -18,14 +18,14 @@ public class MenuServiceImpl implements MenuService {
             int menuNum = scanner.nextInt();
 
             if (menuNum == 1) {
-                System.out.println("Вы выбрали купить книгу");
-                clientService.buyBook();
+                System.out.println("Вы выбрали купить чай");
+                clientService.buyTea();
             } else if (menuNum == 2) {
-                System.out.println("Вы выбрали положить книгу");
-                clientService.putBook();
+                System.out.println("Вы выбрали вернуть чай");
+                clientService.putTea();
             } else if (menuNum == 3) {
-                System.out.println("Печатаем названия книг...");
-                clientService.printBooks();
+                System.out.println("Печатаем названия чая...");
+                clientService.printTea();
             } else {
                 System.out.println("До встречи");
                 break;
@@ -35,6 +35,6 @@ public class MenuServiceImpl implements MenuService {
 
     @Override
     public void printMenu() {
-        System.out.println("1 - Купить, 2 - Отдать, 3 - Напечатать названия, Всё остальное - выход");
+        System.out.println("1 - Купить, 2 - Вернуть, 3 - Напечатать названия, Всё остальное - выход");
     }
 }

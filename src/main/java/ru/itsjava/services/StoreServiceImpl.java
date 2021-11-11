@@ -1,6 +1,6 @@
 package ru.itsjava.services;
 
-import ru.itsjava.domain.Book;
+import ru.itsjava.domain.Tea;
 import ru.itsjava.domain.Client;
 
 import java.util.ArrayList;
@@ -13,19 +13,19 @@ public class StoreServiceImpl implements StoreService {
     public void start() {
         Scanner scanner = new Scanner(System.in);
 
-        System.out.println("Введите ваше ФИО");
+        System.out.println("Введите ваше имя");
         String clientName = scanner.next();
 
         Client client = new Client(clientName, new ArrayList<>());
 
-        List<Book> bookList = new ArrayList<>();
-        bookList.add(new Book("Философия_Java", "Брюс Эккель"));
-        bookList.add(new Book("Чистый_код", "Роберт Мартин"));
+        List<Tea> teaList = new ArrayList<>();
+        teaList.add(new Tea("Greenfield"));
+        teaList.add(new Tea("Lipton"));
 
-        BookService bookService = new BookServiceImpl(bookList);
+        TeaService teaService = new TeaServiceImpl(teaList);
 
         ClientService clientService =
-                new ClientServiceImpl(client, scanner, bookService);
+                new ClientServiceImpl(client, scanner, teaService);
 
 
         MenuService menuService = new MenuServiceImpl(clientService, scanner);

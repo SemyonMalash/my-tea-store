@@ -5,7 +5,6 @@ import lombok.RequiredArgsConstructor;
 
 @Data
 @RequiredArgsConstructor
-public class Book {
-    private final String title;
-    private final String author;
+public class Tea {
+    private final String brand;
 }

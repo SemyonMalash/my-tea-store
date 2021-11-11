@@ -1,7 +1,7 @@
 package ru.itsjava.services;
 
 import lombok.RequiredArgsConstructor;
-import ru.itsjava.domain.Book;
+import ru.itsjava.domain.Tea;
 import ru.itsjava.domain.Client;
 
 import java.util.Scanner;
@@ -10,37 +10,34 @@ import java.util.Scanner;
 public class ClientServiceImpl implements ClientService {
     private final Client client;
     private final Scanner scanner;
-    private final BookService bookService;
+    private final TeaService teaService;
 
     @Override
-    public void buyBook() {
-        System.out.println("Введите название книги");
-        String title = scanner.next();
-        if (bookService.hasBook(title)) {
-            System.out.println("Покупаем книгу ...");
-            bookService.takeBookByName(title);
-            System.out.println("Купили книгу");
+    public void buyTea() {
+        System.out.println("Введите название чая");
+        String brand = scanner.next();
+        if (teaService.haveTea(brand)) {
+            System.out.println("Покупаем чай ...");
+            teaService.takeTeaByBrand(brand);
+            System.out.println("Купили чай");
         } else {
-            System.out.println("Такой книги нет");
+            System.out.println("Такого чая нет");
         }
     }
 
     @Override
-    public void putBook() {
-        System.out.println("Введите название книги");
-        String title = scanner.next();
+    public void putTea() {
+        System.out.println("Введите название чая");
+        String brand = scanner.next();
 
-        System.out.println("Введите имя автора");
-        String author = scanner.next();
-
-        Book book = new Book(title, author);
-        bookService.putBook(book);
+        Tea tea = new Tea(brand);
+        teaService.putTea(tea);
     }
 
     @Override
-    public void printBooks() {
+    public void printTea() {
         System.out.println("Уважаемый " + client.getName());
-        System.out.println("Наши книги: ");
-        bookService.printBooks();
+        System.out.println("Наш чай: ");
+        teaService.printTea();
     }
 }

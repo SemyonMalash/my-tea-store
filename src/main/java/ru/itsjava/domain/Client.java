@@ -8,5 +8,5 @@ import java.util.List;
 @RequiredArgsConstructor
 public class Client {
     private final String name;
-    private final List<Book> books;
+    private final List<Tea> tea;
 }
