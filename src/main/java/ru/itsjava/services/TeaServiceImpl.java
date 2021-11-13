@@ -10,10 +10,10 @@ public class TeaServiceImpl implements TeaService {
     private final List<Tea> teaFromStore;
 
     @Override
-    public Tea takeTeaByBrand(String name) {
+    public Tea takeTeaByBrand(String brand) {
         Tea resTea = null;
         for (Tea tea : teaFromStore) {
-            if (tea.getBrand().equals(name)) {
+            if (tea.getBrand().equals(brand)) {
                 resTea = tea;
             }
         }
