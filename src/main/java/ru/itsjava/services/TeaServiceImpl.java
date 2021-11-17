@@ -1,10 +1,12 @@
 package ru.itsjava.services;
 
+import lombok.Data;
 import lombok.RequiredArgsConstructor;
 import ru.itsjava.domain.Tea;
 
 import java.util.List;
 
+@Data
 @RequiredArgsConstructor
 public class TeaServiceImpl implements TeaService {
     private final List<Tea> teaFromStore;

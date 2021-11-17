@@ -1,5 +1,6 @@
 package ru.itsjava.domain;
 
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
@@ -12,5 +13,7 @@ public class TeaTest {
     @Test
     public void Constructor() {
         Tea tea = new Tea(DEFAULT_BRAND);
+
+        Assertions.assertEquals(DEFAULT_BRAND, tea.getBrand());
     }
 }

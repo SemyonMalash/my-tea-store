@@ -1,5 +1,6 @@
 package ru.itsjava.domain;
 
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 
@@ -15,5 +16,8 @@ public class ClientTest {
     @Test
     public void Constructor() {
         Client client = new Client(DEFAULT_NAME, teaList);
+
+        Assertions.assertEquals(DEFAULT_NAME, client.getName());
+        Assertions.assertEquals(teaList, client.getTea());
     }
 }

@@ -1,5 +1,6 @@
 package ru.itsjava.services;
 
+import org.junit.jupiter.api.Assertions;
 import org.junit.jupiter.api.DisplayName;
 import org.junit.jupiter.api.Test;
 import ru.itsjava.domain.Tea;
@@ -18,6 +19,8 @@ public class TeaServiceTest {
     public void constructor() {
 
         TeaServiceImpl teaServiceImpl = new TeaServiceImpl(teaList);
+
+        Assertions.assertEquals(teaList, teaServiceImpl.getTeaFromStore());
     }
 
     @DisplayName("Корректно брать чай из магазина")
@@ -25,12 +28,13 @@ public class TeaServiceTest {
     public void takeTeaByBrand() {
 
         List<Tea> teaList = new ArrayList<>();
-        teaList.add(new Tea("Lipton"));
+        teaList.add(new Tea(DEFAULT_BRAND));
 
         TeaService teaService = new TeaServiceImpl(teaList);
 
         teaService.takeTeaByBrand(DEFAULT_BRAND);
 
-        teaList.isEmpty();
+        Assertions.assertEquals(true, teaList.isEmpty());
+        Assertions.assertEquals(0, teaList.size());
     }
 }
